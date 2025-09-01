@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinit Paramane - Portfolio</title>
+  <!-- Only used for keyframes (inline styles can't define @keyframes) -->
+  <style>
+    @keyframes glow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+
+<body style="margin:0; font-family: Arial, Helvetica, sans-serif; color:#2c3e50; text-align:center; overflow-x:hidden;">
+
+  <!-- Interactive Background (Canvas) -->
+  <canvas id="bg" style="position:fixed; inset:0; width:100vw; height:100vh; z-index:-1; display:block;"></canvas>
+
+  <!-- A soft gradient overlay to keep particles colorful but subtle -->
+  <div
+    style="
+      position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(255,255,255,0.25), transparent 60%),
+                  radial-gradient(1000px 700px at 85% 20%, rgba(255,255,255,0.15), transparent 55%),
+                  linear-gradient(135deg, #89f7fe 0%, #66a6ff 40%, #fbc2eb 80%, #a18cd1 100%);
+      mix-blend-mode: screen;
+    ">
+  </div>
+
+  <!-- Main Content -->
+  <div style="padding: 28px 16px 60px; max-width: 980px; margin: 0 auto;">
+    <!-- Profile -->
+    <a href="vinit__paramane.pdf" target="_main" style="display:inline-block; margin-top:44px;">
+      <img src="vinit.jpg" alt="Vinit Paramane"
+        style="
+          width:200px; height:200px; border-radius:50%;
+          padding:6px;
+          background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #89f7fe);
+          background-size: 400% 400%;
+          animation: glow 10s ease infinite;
+          box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        "
+        onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.3)'"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 12px 28px rgba(0,0,0,0.25)'"
+      />
+    </a>
+
+    <!-- Name -->
+    <h1 style="font-size:40px; margin:18px 0 6px; letter-spacing:0.5px; text-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+      Vinit Paramane
+    </h1>
+    <p style="margin:0 0 18px; font-size:16px; opacity:0.85;">
+     • Developer • Learner 
+    </p>
+
+    <!-- Socials -->
+    <div style="margin: 8px 0 28px;">
+      <a href="https://github.com/VinitParamane" target="_main" style="display:inline-block; margin: 0 10px;">
+        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+             alt="GitHub" style="width:34px; height:34px; transition: transform 0.25s ease;"
+             onmouseover="this.style.transform='scale(1.25)'"
+             onmouseout="this.style.transform='scale(1)'" />
+      </a>
+      <a href="https://www.linkedin.com/in/vinitparamane281/" target="_main" style="display:inline-block; margin: 0 10px;">
+        <img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG16.png"
+             alt="LinkedIn" style="width:34px; height:34px; transition: transform 0.25s ease;"
+             onmouseover="this.style.transform='scale(1.25)'"
+             onmouseout="this.style.transform='scale(1)'" />
+      </a>
+    </div>
+
+    <!-- Buttons -->
+    <div style="margin-top: 10px;">
+      <a href="Education.html"
+         style="display:inline-block; text-decoration:none; color:#fff; padding:12px 24px; margin:10px;
+                background:#2980b9; border-radius:12px; box-shadow:0 8px 18px rgba(41,128,185,0.35);
+                font-size:18px; transition: transform 0.25s ease, background 0.25s ease;">
+        Education Details
+      </a>
+      <a href="Project.html"
+         style="display:inline-block; text-decoration:none; color:#fff; padding:12px 24px; margin:10px;
+                background:#e67e22; border-radius:12px; box-shadow:0 8px 18px rgba(230,126,34,0.35);
+                font-size:18px; transition: transform 0.25s ease, background 0.25s ease;">
+        Project Details
+      </a>
+      <a href="Experience.html"
+         style="display:inline-block; text-decoration:none; color:#fff; padding:12px 24px; margin:10px;
+                background:#8e44ad; border-radius:12px; box-shadow:0 8px 18px rgba(142,68,173,0.35);
+                font-size:18px; transition: transform 0.25s ease, background 0.25s ease;">
+        Experience Details
+      </a>
+    </div>
+
+    <!-- Mini script to add hover effects to buttons (still inline, no CSS :hover) -->
+    <script>
+      (function () {
+        var btns = document.querySelectorAll('a[href$=".html"]');
+        for (var i = 0; i < btns.length; i++) {
+          (function(b){
+            b.onmouseover = function () { b.style.transform = 'translateY(-2px) scale(1.05)'; b.style.filter='brightness(1.08)'; };
+            b.onmouseout  = function () { b.style.transform = 'translateY(0) scale(1)'; b.style.filter='brightness(1)'; };
+            b.onmousedown = function () { b.style.transform = 'translateY(1px) scale(0.98)'; };
+            b.onmouseup   = function () { b.style.transform = 'translateY(-2px) scale(1.05)'; };
+            b.ontouchstart= function () { b.style.transform = 'scale(0.98)'; };
+            b.ontouchend  = function () { b.style.transform = 'scale(1)'; };
+          })(btns[i]);
+        }
+      })();
+    </script>
+
+    <!-- Footer -->
+    <footer style="margin-top: 56px; padding: 18px; background: rgba(255,255,255,0.5);
+                    border-radius: 14px; box-shadow: 0 10px 24px rgba(0,0,0,0.12);">
+      <p style="margin:0 0 6px; font-size:18px;">Contact: <a href="mailto:vinitparamane2810@gmail.com" style="color:#2c3e50; text-decoration:none;">vinitparamane2810@gmail.com</a></p>
+      <p style="margin:0; font-size:14px; opacity:0.8;">&copy; 2025 Vinit Paramane • All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <!-- Interactive Particle Background (No Libraries) -->
+  <script>
+    (function () {
+      var canvas = document.getElementById('bg');
+      var ctx = canvas.getContext('2d', { alpha: true });
+
+      var DPR = Math.max(1, window.devicePixelRatio || 1);
+      var particles = [];
+      var linksDistance = 120; // px at CSS pixels
+      var mouse = { x: null, y: null, active: false };
+      var hueBase = 210; // base color angle
+      var animationId = null;
+
+      // Respect reduced motion
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function sizeCanvas() {
+        var w = canvas.clientWidth;
+        var h = canvas.clientHeight;
+        canvas.width  = Math.floor(w * DPR);
+        canvas.height = Math.floor(h * DPR);
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      }
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+
+      function Particle(x, y, vx, vy, size, hue) {
+        this.x = x; this.y = y;
+        this.vx = vx; this.vy = vy;
+        this.size = size;
+        this.hue = hue;
+        this.alpha = rand(0.5, 1);
+        this.pulse = rand(0.5, 1.2);
+      }
+
+      Particle.prototype.update = function (w, h) {
+        // Move
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Soft wrap around
+        if (this.x < -50) this.x = w + 50;
+        if (this.x > w + 50) this.x = -50;
+        if (this.y < -50) this.y = h + 50;
+        if (this.y > h + 50) this.y = -50;
+
+        // Gentle breathing
+        this.size += Math.sin((Date.now() * 0.001 + this.pulse)) * 0.02;
+
+        // Mouse interaction (repel)
+        if (mouse.x !== null && mouse.y !== null) {
+          var dx = this.x - mouse.x;
+          var dy = this.y - mouse.y;
+          var d2 = dx*dx + dy*dy;
+          var radius = 120;
+          if (d2 < radius*radius) {
+            var d = Math.sqrt(d2) || 0.001;
+            var force = (radius - d) / radius;
+            this.vx += (dx / d) * force * 0.3;
+            this.vy += (dy / d) * force * 0.3;
+          }
+        }
+
+        // Slight velocity damping for stability
+        this.vx *= 0.995;
+        this.vy *= 0.995;
+      };
+
+      Particle.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, Math.max(0.8, this.size), 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fillStyle = 'hsla(' + this.hue + ', 85%, 60%, ' + this.alpha + ')';
+        ctx.fill();
+      };
+
+      function connectParticles() {
+        for (var i = 0; i < particles.length; i++) {
+          for (var j = i + 1; j < particles.length; j++) {
+            var dx = particles[i].x - particles[j].x;
+            var dy = particles[i].y - particles[j].y;
+            var dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < linksDistance) {
+              ctx.globalAlpha = (1 - dist / linksDistance) * 0.6;
+              ctx.strokeStyle = 'hsla(' + ((particles[i].hue + particles[j].hue) / 2) + ', 85%, 65%, ' + ctx.globalAlpha + ')';
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+              ctx.globalAlpha = 1;
+            }
+          }
+        }
+      }
+
+      function burst(x, y, count) {
+        for (var i = 0; i < count; i++) {
+          var angle = rand(0, Math.PI * 2);
+          var speed = rand(0.8, 2.2);
+          particles.push(new Particle(
+            x + Math.cos(angle) * rand(0, 6),
+            y + Math.sin(angle) * rand(0, 6),
+            Math.cos(angle) * speed,
+            Math.sin(angle) * speed,
+            rand(1.2, 2.6),
+            hueBase + rand(-40, 40)
+          ));
+        }
+      }
+
+      function initParticles() {
+        particles.length = 0;
+        var w = canvas.clientWidth;
+        var h = canvas.clientHeight;
+        var baseCount = reduceMotion ? 40 : 95; // performance-friendly
+        for (var i = 0; i < baseCount; i++) {
+          particles.push(new Particle(
+            rand(0, w), rand(0, h),
+            rand(-0.6, 0.6), rand(-0.6, 0.6),
+            rand(1.0, 2.4),
+            hueBase + rand(-50, 50)
+          ));
+        }
+      }
+
+      function draw() {
+        var w = canvas.clientWidth;
+        var h = canvas.clientHeight;
+
+        // Clear with subtle fade for trails
+        ctx.fillStyle = 'rgba(10, 12, 28, 0.08)';
+        ctx.fillRect(0, 0, w, h);
+
+        // Additive glow
+        ctx.globalCompositeOperation = 'lighter';
+
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].update(w, h);
+          particles[i].draw();
+        }
+
+        connectParticles();
+
+        // Normal composition back
+        ctx.globalCompositeOperation = 'source-over';
+
+        animationId = requestAnimationFrame(draw);
+      }
+
+      // Mouse & touch
+      window.addEventListener('mousemove', function (e) {
+        mouse.x = e.clientX; mouse.y = e.clientY; mouse.active = true;
+      });
+      window.addEventListener('mouseleave', function () {
+        mouse.x = null; mouse.y = null; mouse.active = false;
+      });
+      window.addEventListener('click', function (e) {
+        burst(e.clientX, e.clientY, reduceMotion ? 10 : 18);
+      });
+
+      window.addEventListener('touchstart', function (e) {
+        if (e.touches && e.touches[0]) {
+          burst(e.touches[0].clientX, e.touches[0].clientY, reduceMotion ? 10 : 16);
+        }
+      }, { passive: true });
+
+      // Resize handling
+      var resizeTimer;
+      function onResize() {
+        sizeCanvas();
+        // Throttle reinit to avoid jank
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function(){
+          initParticles();
+        }, 120);
+      }
+      window.addEventListener('resize', onResize);
+
+      // Kickoff
+      sizeCanvas();
+      initParticles();
+      draw();
+    })();
+  </script>
+</body>
+</html>
